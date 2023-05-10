@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ message }}</h1>
+<form action="/submit_team" method="POST">
+    Choose a Team:
+    <SELECT name="team">
+    {% for l in teams %}
+        {% if l == 'US': %}
+            <OPTION value='{{l}}' selected>{{l}}</option>
+        {% else: %}
+            <OPTION value='{{l}}'>{{l}}</option>
+        {% endif %}
+    {% endfor %}
+    </SELECT>
+<!--    <input type="text" name="locale" placeholder="Enter a locale">-->
+    <p>Select which option you would like to visualize:</p>
+    <table border=0>
+        {% for key, value in options.items() %}
+        <tr>
+            <td style="text-align:left"><input type="radio" name="data_request" id={{key}} value={{key}} checked>
+                {{value}} </input></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>

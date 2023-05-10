@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ locale }}</title>
+    </head>
+    <body>
+        <h1>Projected Win Rate of Future Seasons</h1>
+            <img src="{{ url_for('fig', data_request=data_request, team=team, project=project) }}" alt="Statistics for {{ team }}">
+        <form action="/submit_projection" method="POST">
+            <p>Select which year you'd like to project to:
+                <input type="text" name="season" placeholder="2030">
+                <input type="submit" value="Submit"></p>
+        </form>
+
+    </body>
+</html>
